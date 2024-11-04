@@ -213,7 +213,7 @@
                 .then(response => response.json())
                 .then(data => {
                     const fundingData = data.funding_rounds;
-                    const years = [...new Set(fundingData.map(item => item.year))];
+                    const years = [...new Set(fundingData.map(item => item.year))].sort();
                     const fundingPerYear = years.map(year => {
                         return fundingData
                             .filter(item => item.year === year)
