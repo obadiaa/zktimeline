@@ -1,0 +1,64 @@
+<!-- Initial setup for a zk Event Timeline Project -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zk Events Timeline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add additional libraries like React or CSS framework if needed -->
+</head>
+<body>
+    <header style="background-color: #222; color: #ffffff; padding: 20px; text-align: center;">
+    <h1>Zero Knowledge (zk) Events Timeline</h1>
+    <p>A collaborative open-source timeline of significant zk events. Contributions are welcome!</p>
+    <nav>
+        <a href="index.html" style="color: #ffcc00; text-decoration: none; margin-right: 15px;">Home</a>
+        <a href="about.html" style="color: #ffcc00; text-decoration: none; margin-right: 15px;">About & Resources</a>
+        <a href="analysis.html" style="color: #ffcc00; text-decoration: none;">Analysis</a>
+    </nav>
+</header>
+    
+    <section id="timeline">
+        <div class="timeline-line"></div>
+        <!-- Timeline content will be dynamically generated -->
+    </section>
+    
+    
+    
+    <script>
+        // Function to fetch and render timeline events from events.json
+        const renderTimeline = async () => {
+            try {
+                const response = await fetch('events.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load event data');
+                }
+                const events = await response.json();
+                const timeline = document.getElementById('timeline');
+                events.forEach(event => {
+                    const eventElement = document.createElement('div');
+                    eventElement.classList.add('event');
+                    eventElement.innerHTML = `
+                        <h2>${event.title}</h2>
+                        <p>Date: ${event.date}</p>
+                        <p>${event.description}</p>
+                        <a href="${event.link}" target="_blank">Learn more</a>
+                    `;
+                    timeline.appendChild(eventElement);
+                });
+            } catch (error) {
+                console.error('Error loading events:', error);
+            }
+        };
+
+        // Call the function to render the timeline
+        renderTimeline();
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script> <!-- Optional JS file to add more features -->
+</body>
+</html>

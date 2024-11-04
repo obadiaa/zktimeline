@@ -1,0 +1,93 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+#timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Central Line */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+
+/* Event Styling */
+.event {
+    position: relative;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    width: 40%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.event:nth-child(odd) {
+    left: 0;
+}
+
+.event:nth-child(even) {
+    left: 60%;
+}
+
+.event h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.event p {
+    margin: 10px 0;
+}
+
+.event a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.event a:hover {
+    text-decoration: underline;
+}
+
+/* Connector */
+.event::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.event:nth-child(odd)::before {
+    right: -20px;
+    border-width: 10px 20px 10px 0;
+    border-color: transparent #333 transparent transparent;
+}
+
+.event:nth-child(even)::before {
+    left: -20px;
+    border-width: 10px 0 10px 20px;
+    border-color: transparent transparent transparent #333;
+}

@@ -1,0 +1,80 @@
+<!-- Analysis Page for zk Timeline Project -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis of zk Trends</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header style="background-color: #222; color: #ffffff; padding: 20px; text-align: center;">
+    <h1>zk Timeline Analysis</h1>
+    <nav>
+        <a href="index.html" style="color: #ffcc00; text-decoration: none; margin-right: 15px;">Home</a>
+        <a href="about.html" style="color: #ffcc00; text-decoration: none;">About & Resources</a>
+    </nav>
+</header>
+    <section>
+        <h2>Analysis Overview</h2>
+        <p>On this page, we explore trends in the evolution of Zero Knowledge (zk) technologies, including metrics like the number of zk research papers published each year, the frequency of significant zk events, and the amount of funding raised by zk projects.</p>
+    </section>
+    <section>
+        <h2>Key Metrics</h2>
+        <h3>Number of zk Papers Published Per Year</h3>
+        <div id="papers-chart">[Graph Placeholder]</div>
+        <h3>Number of zk Events Per Year</h3>
+        <div id="events-chart">[Graph Placeholder]</div>
+        <h3>Amount of Funding Raised by zk Projects</h3>
+        <div id="funding-chart">[Graph Placeholder]</div>
+        <h3>Market Map of zk Projects</h3>
+        <div id="market-map">[Graph Placeholder]</div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Placeholder for chart rendering logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx1 = document.getElementById('papers-chart').getContext('2d');
+            const ctx2 = document.getElementById('events-chart').getContext('2d');
+            const ctx3 = document.getElementById('funding-chart').getContext('2d');
+            // Sample data (replace with real data from JSON or API later)
+            new Chart(ctx1, {
+                type: 'line',
+                data: {
+                    labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022'],
+                    datasets: [{
+                        label: 'zk Papers Published',
+                        data: [2, 4, 10, 15, 20, 30, 50],
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        fill: false
+                    }]
+                }
+            });
+            new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022'],
+                    datasets: [{
+                        label: 'zk Events Per Year',
+                        data: [1, 0, 4, 10, 15, 20, 25],
+                        backgroundColor: 'rgba(153, 102, 255, 0.6)'
+                    }]
+                }
+            });
+            new Chart(ctx3, {
+                type: 'line',
+                data: {
+                    labels: ['2016', '2017', '2018', '2019', '2020', '2021', '2022'],
+                    datasets: [{
+                        label: 'Funding Raised (in Millions)',
+                        data: [5, 10, 15, 25, 50, 75, 100],
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        fill: false
+                    }]
+                }
+            });
+        });
+    </script>
+</body>
+</html>
