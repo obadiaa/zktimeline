@@ -26,8 +26,8 @@
         <!-- Timeline content will be dynamically generated -->
     </section>
     
-    
-    
+    <!-- Year Counter -->
+    <div id="year-counter" style="position: fixed; top: 20px; right: 20px; background: #222; color: #ffcc00; padding: 10px; border-radius: 8px; font-size: 1.5em;">Year: 1982</div>
     <script>
         // Function to fetch and render timeline events from events.json
         const renderTimeline = async () => {
@@ -38,7 +38,16 @@
                 }
                 const events = await response.json();
                 const timeline = document.getElementById('timeline');
-                events.forEach(event => {
+                
+                // Convert event dates to JavaScript Date objects
+                events.forEach(event => event.dateObject = new Date(event.date));
+                
+                // Sort events by date, in case they aren't already
+                events.sort((a, b) => a.dateObject - b.dateObject);
+                
+                // Loop through events and calculate spacing
+                for (let i = 0; i < events.length; i++) {
+                    const event = events[i];
                     const eventElement = document.createElement('div');
                     eventElement.classList.add('event');
                     eventElement.innerHTML = `
@@ -47,8 +56,22 @@
                         <p>${event.description}</p>
                         <a href="${event.link}" target="_blank">Learn more</a>
                     `;
+
+                    // Calculate margin-top based on the time difference to the previous event
+                    if (i > 0) {
+                        const prevEvent = events[i - 1];
+                        const timeDifference = event.dateObject - prevEvent.dateObject;
+                        // Convert time difference to a reasonable spacing value
+                        // For simplicity, 1 day = 1 pixel spacing (adjust as needed)
+                        const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+                        eventElement.style.marginTop = `${daysDifference * 0.5}px`; // Adjusted multiplier for more compact spacing // Adjust multiplier for desired spacing
+                    } else {
+                        // First event has no spacing above it
+                        eventElement.style.marginTop = '20px';
+                    }
+
                     timeline.appendChild(eventElement);
-                });
+                }
             } catch (error) {
                 console.error('Error loading events:', error);
             }
@@ -56,6 +79,23 @@
 
         // Call the function to render the timeline
         renderTimeline();
+
+// Function to update year counter while scrolling
+window.addEventListener('scroll', () => {
+    const events = document.querySelectorAll('.event');
+    const yearCounter = document.getElementById('year-counter');
+    let currentYear = 1982; // Default year, can be adjusted based on earliest event
+
+    events.forEach(event => {
+        const rect = event.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            const eventDate = new Date(event.querySelector('p').innerText.replace('Date: ', '')).getFullYear();
+            currentYear = eventDate;
+        }
+    });
+
+    yearCounter.innerText = `Year: ${currentYear}`;
+});
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
