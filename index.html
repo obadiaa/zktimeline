@@ -5,14 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>zk Events Timeline</title>
+    <title>WIP - zk Events Timeline</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="styles.css">
     <!-- Add additional libraries like React or CSS framework if needed -->
 </head>
 <body>
     <header style="background-color: #222; color: #ffffff; padding: 20px; text-align: center;">
-    <h1>Zero Knowledge (zk) Events Timeline</h1>
+    <h1>WIP - Zero Knowledge (zk) Events Timeline</h1>
     <p>A collaborative open-source timeline of significant zk events. Contributions are welcome!</p>
     <nav>
         <a href="index.html" style="color: #ffcc00; text-decoration: none; margin-right: 15px;">Home</a>
@@ -84,15 +84,25 @@
 window.addEventListener('scroll', () => {
     const events = document.querySelectorAll('.event');
     const yearCounter = document.getElementById('year-counter');
-    let currentYear = 1982; // Default year, can be adjusted based on earliest event
+    let currentYear = 1982; // Default year, set to the earliest event
+
+    let closestEvent = null;
+    let closestDistance = Infinity;
 
     events.forEach(event => {
         const rect = event.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
-            const eventDate = new Date(event.querySelector('p').innerText.replace('Date: ', '')).getFullYear();
-            currentYear = eventDate;
+        const distanceFromTop = Math.abs(rect.top - window.innerHeight / 2); // Find the distance from the middle of the screen
+        
+        if (distanceFromTop < closestDistance) {
+            closestDistance = distanceFromTop;
+            closestEvent = event;
         }
     });
+
+    if (closestEvent) {
+        const eventDate = new Date(closestEvent.querySelector('p').innerText.replace('Date: ', '')).getFullYear();
+        currentYear = eventDate;
+    }
 
     yearCounter.innerText = `Year: ${currentYear}`;
 });

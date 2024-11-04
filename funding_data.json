@@ -1,0 +1,12 @@
+{
+    "funding_rounds": [
+        { "company_name": "StarkWare Industries", "year": 2018, "fundraise_amount": 6, "link": "https://example.com/starkware2018" },
+        { "company_name": "Aztec Protocol", "year": 2019, "fundraise_amount": 2.1, "link": "https://example.com/aztec2019" },
+        { "company_name": "Electric Coin Company (Zcash)", "year": 2020, "fundraise_amount": 5, "link": "https://example.com/zcash2020" },
+        { "company_name": "Mina Protocol", "year": 2021, "fundraise_amount": 18.75, "link": "https://example.com/mina2021" },
+        { "company_name": "StarkWare Industries", "year": 2021, "fundraise_amount": 50, "link": "https://example.com/starkware2021" },
+        { "company_name": "Company G", "year": 2022, "fundraise_amount": 50, "link": "https://example.com/companyG2022" },
+        { "company_name": "Company H", "year": 2023, "fundraise_amount": 60, "link": "https://example.com/companyH2023" },
+        { "company_name": "Company I", "year": 2024, "fundraise_amount": 70, "link": "https://example.com/companyI2024" }
+    ]
+}
