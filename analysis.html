@@ -7,6 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analysis of zk Trends</title>
     <link rel="stylesheet" href="styles.css">
+<style>
+        .hidden {
+            display: none;
+        }
+        .zk-map {
+            text-align: left;
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .category {
+            margin-top: 10px;
+        }
+        .category ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .map-buttons {
+            margin-bottom: 20px;
+        }
+        .map-buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #444;
+            color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .map-buttons button:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
     <header style="background-color: #222; color: #ffffff; padding: 20px; text-align: center;">
@@ -21,6 +57,141 @@
         <p>On this page, we explore trends in the evolution of Zero Knowledge (zk) technologies, including metrics like the number of zk research papers published each year, the frequency of significant zk events, and the amount of funding raised by zk projects.</p>
     </section>
     <section>
+        <h2>Evolution of ZK Applications</h2>
+        <p>Explore how the zk landscape has evolved over time:</p>
+        
+        <div class="zk-map-container">
+            <div class="map-buttons">
+                <button onclick="showMap('2016')">2016</button>
+                <button onclick="showMap('2020')">2020</button>
+                <button onclick="showMap('2024')">2024</button>
+                <button onclick="showMap('2028')">2028</button>
+            </div>
+
+            <div class="map-frame" id="zk-map-frame">
+                <div id="map-2016" class="zk-map hidden">
+                    <h3>2016 - Applications of ZK</h3>
+                    <div class="category">Payments
+                        <ul>
+                            <li>ZCash</li>
+                            <li>Zcoin</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="map-2020" class="zk-map hidden">
+                    <h3>2020 - Applications of ZK</h3>
+                    <div class="category">Payments
+                        <ul>
+                            <li>ZCash</li>
+                            <li>Zcoin</li>
+                            <li>Aztec</li>
+                        </ul>
+                    </div>
+                    <div class="category">L2s
+                        <ul>
+                            <li>ZKSync</li>
+                        </ul>
+                    </div>
+                    <div class="category">ID/Wallets
+                        <ul>
+                            <li>iden3</li>
+                        </ul>
+                    </div>
+                    <div class="category">Games
+                        <ul>
+                            <li>Dark Forest</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="map-2024" class="zk-map hidden">
+                    <h3>2024 - Applications of ZK</h3>
+                    <div class="category">Payments
+                        <ul>
+                            <li>ZCash</li>
+                            <li>Firo</li>
+                            <li>Daimo</li>
+                        </ul>
+                    </div>
+                    <div class="category">L2s
+                        <ul>
+                            <li>ZKSync</li>
+                            <li>Polygon</li>
+                            <li>StarkNet</li>
+                            <li>Taiko</li>
+                            <li>Scroll</li>
+                        </ul>
+                    </div>
+                    <div class="category">ID/Wallets
+                        <ul>
+                            <li>Privado.iD</li>
+                            <li>Semaphore</li>
+                            <li>zkLogin</li>
+                            <li>Rarimo</li>
+                            <li>Worldcoin</li>
+                        </ul>
+                    </div>
+                    <div class="category">Games
+                        <ul>
+                            <li>Dark Forest</li>
+                            <li>Immutable</li>
+                            <li>Blade</li>
+                            <li>Zypher</li>
+                            <li>Zordle</li>
+                            <li>zkHoldem</li>
+                            <li>TileVille</li>
+                        </ul>
+                    </div>
+                    <div class="category">Defi
+                        <ul>
+                            <li>Panther</li>
+                            <li>Renegade</li>
+                            <li>DarkFi</li>
+                            <li>Offshift</li>
+                        </ul>
+                    </div>
+                    <div class="category">ZKML/AI
+                        <ul>
+                            <li>EzkML</li>
+                            <li>Modulus Labs</li>
+                            <li>Noya</li>
+                            <li>ZkAGI</li>
+                        </ul>
+                    </div>
+                    <div class="category">Verifiable Compute
+                        <ul>
+                            <li>RISC Zero</li>
+                            <li>Nexus</li>
+                            <li>NovaNet</li>
+                            <li>Argumentity</li>
+                        </ul>
+                    </div>
+                    <div class="category">Cross-chain
+                        <ul>
+                            <li>Hyperlane</li>
+                            <li>Succinct</li>
+                            <li>Nil Foundation</li>
+                        </ul>
+                    </div>
+                    <div class="category">R&D/Audit
+                        <ul>
+                            <li>Geometry Research</li>
+                            <li>Relic Labs</li>
+                            <li>Zellic</li>
+                            <li>Nethermind</li>
+                            <li>ZK Hack</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="map-2028" class="zk-map hidden">
+                    <h3>2028 - What Will the Future Hold?</h3>
+                    <p>Speculate on the future categories and growth of ZK applications!</p>
+                </div>
+            </div>
+
+            <p class="citation">Source: Anna Rose's Presentation at ZkSummit12. <a href="https://www.youtube.com/watch?v=KWS0InuJJrA&list=PLj80z0cJm8QFy2umHqu77a8dbZSqpSH54&index=1&ab_channel=ZeroKnowledge" target="_blank">Watch Presentation</a>. <a href="https://x.com/AnnaRRose" target="_blank">Anna Rose's Twitter</a></p>
+        </div>
+    </section>
+    <section>
         <h2>Key Metrics</h2>
         <h3>Number of zk Papers Published Per Year</h3>
         <div id="papers-chart">[Graph Placeholder]</div>
@@ -28,8 +199,6 @@
         <div id="events-chart">[Graph Placeholder]</div>
         <h3>Amount of Funding Raised by zk Projects</h3>
         <div id="funding-chart">[Graph Placeholder]</div>
-        <h3>Market Map of zk Projects</h3>
-        <div id="market-map">[Graph Placeholder]</div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -75,6 +244,39 @@
                 }
             });
         });
+    </script>
+<script>
+        function showMap(year) {
+            const mapImage = document.getElementById('zk-map');
+            switch (year) {
+                case '2016':
+                    mapImage.src = 'map_2016.png';
+                    mapImage.alt = 'ZK Map 2016';
+                    break;
+                case '2020':
+                    mapImage.src = 'map_2020.png';
+                    mapImage.alt = 'ZK Map 2020';
+                    break;
+                case '2024':
+                    mapImage.src = 'map_2024.png';
+                    mapImage.alt = 'ZK Map 2024';
+                    break;
+                case '2028':
+                    mapImage.src = 'map_2028_placeholder.png'; // Placeholder with a question mark
+                    mapImage.alt = 'ZK Map 2028 - What will it be?';
+                    break;
+            }
+        }
+    </script>
+<script>
+        function showMap(year) {
+            const allMaps = document.querySelectorAll('.zk-map');
+            allMaps.forEach(map => map.classList.add('hidden'));
+            const selectedMap = document.getElementById(`map-${year}`);
+            if (selectedMap) {
+                selectedMap.classList.remove('hidden');
+            }
+        }
     </script>
 </body>
 </html>
