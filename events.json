@@ -11,6 +11,7 @@
     {"title": "GKR Protocol", "date": "2007", "description": "Introduction of the GKR Protocol", "link": ""},
     {"title": "KZG Polynomial Commitment Scheme", "date": "2010", "description": "Introduction of the KZG Polynomial Commitment Scheme", "link": ""},
     {"title": "zkSNARKs Defined", "date": "2012", "description": "zkSNARKs defined for the first time by Bitansky, Canetti, Chiesa", "link": ""},
+    {"title": "GGPR Protocol", "description": "First practical zkSNARK protocol that encoded computation as quadratic programs", "date": "2013", "link": "https://eprint.iacr.org/2012/215"},
     {"title": "Pinocchio", "date": "2013", "description": "First Proof-of-Concept implementation of zkSNARKs called Pinocchio", "link": ""},
     {"title": "Zerocoin Paper", "date": "2013", "description": "Zerocoin paper merges blockchain and zkSNARKs concepts", "link": ""},
     {"title": "LibSnark Released", "date": "2014", "description": "LibSnark library released for zkSNARKs", "link": ""},
